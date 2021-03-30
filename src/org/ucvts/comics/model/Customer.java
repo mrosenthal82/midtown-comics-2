@@ -60,6 +60,16 @@ public class Customer {
     }
     
     /**
+     * Sets the customer ID.
+     *
+     * @param customerId the new customer id
+     */
+    
+    public void setCustomerId(long customerId) {
+    	this.customerId = customerId;
+    }
+    
+    /**
      * Returns the customer's first name.
      *
      * @return firstName
