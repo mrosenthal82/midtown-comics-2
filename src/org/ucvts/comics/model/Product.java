@@ -76,6 +76,16 @@ public class Product {
     }
 
     /**
+     * Sets the product ID.
+     *
+     * @param productId the new product id
+     */
+    
+    public void setProductId(long productId) {
+    	this.productId = productId;
+    }
+    
+    /**
      * Returns the title of the comic book.
      *
      * @return title
@@ -83,6 +93,16 @@ public class Product {
      
     public String getTitle() {
         return title;
+    }
+    
+    /**
+     * Sets the title.
+     *
+     * @param title the new title
+     */
+    
+    public void setTitle(String title) {
+    	this.title = title;
     }
 
     /**
@@ -96,6 +116,16 @@ public class Product {
     }
     
     /**
+     * Sets the author.
+     *
+     * @param author the new author
+     */
+    
+    public void setAuthor(String author) {
+    	this.author = author;
+    }
+    
+    /**
      * Returns the date this issue was released.
      *
      * @return releaseDate
@@ -104,7 +134,17 @@ public class Product {
     public long getReleaseDate() {
         return releaseDate;
     }
+    
+    /**
+     * Sets the release date.
+     *
+     * @param releaseDate the new release date
+     */
 
+    public void setReleaseDate(long releaseDate) {
+    	this.releaseDate = releaseDate;
+    }
+    
     /**
      * Returns the issue number.
      *
@@ -113,6 +153,16 @@ public class Product {
      
     public int getIssue() {
         return issue;
+    }
+    
+    /**
+     * Sets the issue number.
+     *
+     * @param issue the new issue number
+     */
+    
+    public void setIssue(int issue) {
+    	this.issue = issue;
     }
 
     /**
