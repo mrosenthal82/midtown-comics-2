@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.ucvts.comics.MidtownComics;
-import org.ucvts.comics.dao.DAO;        // this is a new import statement
-import org.ucvts.comics.dao.ProductDAO; // this is a new import statement
+import org.ucvts.comics.dao.DAO;        
+import org.ucvts.comics.dao.ProductDAO;
+import org.ucvts.comics.dao.CustomerDAO;
 import org.ucvts.comics.model.Order;
 import org.ucvts.comics.model.OrderItem;
 import org.ucvts.comics.model.Product;
@@ -16,6 +17,7 @@ import org.ucvts.comics.view.CartView;
 import org.ucvts.comics.view.InventoryView;
 import org.ucvts.comics.view.OrderView;
 import org.ucvts.comics.view.ProductView;
+import org.ucvts.comics.model.Customer;
 
 public class ViewManager {
 
@@ -284,6 +286,22 @@ public class ViewManager {
     
     public Order getOrder() {
         return order;
+    }
+    
+    /**
+     * Retrieves the customer list.
+     * 
+     * @return the customer list
+     */
+    
+    public List<Customer> getCustomerList() {
+        try {
+            return CustomerDAO.getCustomers();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return new ArrayList<>();
     }
 
     /*

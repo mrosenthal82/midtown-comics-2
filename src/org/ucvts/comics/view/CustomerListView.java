@@ -74,14 +74,14 @@ public class CustomerListView extends JPanel implements ActionListener {
      * Initializes the customer list UI components.
      */
     
-//    Update here and in ViewManager --> make CustomerPanel, add relevant methods to ViewManager, make CustomerView
+//    Update here and in ViewManager --> make CustomerView
     private void initCustomerList() {
         JPanel body = new JPanel();
         body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
         body.setBorder(new EmptyBorder(15, 15, 15, 15));
         
-        for (int i = 0; i < manager.getInventory().size(); i++) {            
-            body.add(new InventoryItemPanel(manager, manager.getInventory().get(i)));
+        for (int i = 0; i < manager.getCustomerList().size(); i++) {            
+            body.add(new CustomerPanel(manager, manager.getCustomerList().get(i)));
         }
         
         scroll = new JScrollPane(body);
