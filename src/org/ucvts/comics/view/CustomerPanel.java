@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 
 import org.ucvts.comics.MidtownComics;
 import org.ucvts.comics.controller.ViewManager;

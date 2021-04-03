@@ -21,7 +21,7 @@ public class CustomerView extends JPanel implements ActionListener {
 
     private ViewManager manager;
     private Customer customer;
-    private ProductForm productForm;	// change to CustomerForm
+    private CustomerForm customerForm;
     private JButton save;
     private JButton remove;
     private JButton cancel;
@@ -36,7 +36,7 @@ public class CustomerView extends JPanel implements ActionListener {
         super(new BorderLayout());
 
         this.manager = manager;
-        this.productForm = new ProductForm();	// change to CustomerForm
+        this.customerForm = new CustomerForm();
         this.init();
     }
     
@@ -50,7 +50,7 @@ public class CustomerView extends JPanel implements ActionListener {
         this.customer = customer;
         
         remove.setEnabled(true);
-        productForm.updateFields(product);	// change to CustomerForm
+        customerForm.updateFields(customer);
     }
 
     /*
@@ -59,7 +59,7 @@ public class CustomerView extends JPanel implements ActionListener {
 
     private void init() {        
         initHeader();
-        initProductForm();
+        initCustomerForm();
         initFooter();
     }
     
@@ -80,11 +80,11 @@ public class CustomerView extends JPanel implements ActionListener {
   
     
     /*
-     * Initializes the productform.
+     * Initializes the customer form.
      */
-// Change to CustomerForm
-    private void initProductForm() {
-        this.add(new JScrollPane(productForm), BorderLayout.CENTER);
+
+    private void initCustomerForm() {
+        this.add(new JScrollPane(customerForm), BorderLayout.CENTER);
     }
     
     /*
@@ -116,22 +116,22 @@ public class CustomerView extends JPanel implements ActionListener {
      *
      * @param e the event that triggered this action
      */
-// Update for Customer and CustomerForm
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         
         if (source.equals(save)) {
             if (customer == null) {
-                manager.addProductToInventory(productForm.getProductFromFields());
+                manager.addCustomerToList(customerForm.getCustomerFromFields());
             } else {
-                manager.modifyProductInInventory(productForm.getProductFromFields());
+                manager.modifyCustomerInList(customerForm.getCustomerFromFields());
             }
         } else if (source.equals(remove)) {
-            manager.removeProductFromInventory(product);
+            manager.removeCustomerFromList(customer);
         } else if (source.equals(cancel)) {
-            manager.detachProduct();
-            manager.switchTo(MidtownComics.InventoryView);
+            manager.detachCustomer();
+            manager.switchTo(MidtownComics.CustomerListView);
         }
     }
 }

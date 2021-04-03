@@ -21,13 +21,16 @@ public class MidtownComics extends JFrame {
     public static final int ProductViewIndex = 1;
     public static final int CartViewIndex = 2;
     public static final int OrderViewIndex = 3;
-    public static final int CustomerListIndex = 4;
+    public static final int CustomerListViewIndex = 4;
+    public static final int CustomerViewIndex = 5;
+
     
     public static final String InventoryView = "InventoryView";
     public static final String ProductView = "ProductView";
     public static final String CartView = "CartView";
     public static final String OrderView = "OrderView";
     public static final String CustomerListView = "CustomerListView";
+    public static final String CustomerView = "CustomerView";
     
     /**
      * Initializes the application views and frame.

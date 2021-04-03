@@ -18,6 +18,8 @@ import org.ucvts.comics.view.InventoryView;
 import org.ucvts.comics.view.OrderView;
 import org.ucvts.comics.view.ProductView;
 import org.ucvts.comics.model.Customer;
+import org.ucvts.comics.view.CustomerView;
+import org.ucvts.comics.view.CustomerListView;
 
 public class ViewManager {
 
@@ -79,6 +81,8 @@ public class ViewManager {
      * 
      * @param product the product to attach
      */
+    
+////////// PRODUCT //////////////
     
     public void attachProduct(Product product) {
         ((ProductView) views.getComponent(MidtownComics.ProductViewIndex)).setProduct(product);
@@ -145,6 +149,8 @@ public class ViewManager {
             e.printStackTrace();
         }
     }
+    
+///////////// ORDER ///////////////
 
     /**
      * Adds an OrderItem to an Order, creating the Order first if necessary.
@@ -261,7 +267,7 @@ public class ViewManager {
         order = null;
         clearOrder();
     }
-
+    
     /**
      * Retrieves the inventory.
      * 
@@ -288,6 +294,8 @@ public class ViewManager {
         return order;
     }
     
+/////////// CUSTOMER ////////////////
+    
     /**
      * Retrieves the customer list.
      * 
@@ -302,6 +310,78 @@ public class ViewManager {
         }
         
         return new ArrayList<>();
+    }
+    
+    /**
+     * Attaches a customer to the customer view.
+     * 
+     * @param customer the customer to attach
+     */
+    
+    public void attachCustomer(Customer customer) {
+        ((CustomerView) views.getComponent(MidtownComics.CustomerViewIndex)).setCustomer(customer);
+    }
+    
+    /**
+     * Detaches a customer from the customer view.
+     */
+    
+    public void detachCustomer() {
+        ((CustomerView) views.getComponent(MidtownComics.CustomerViewIndex)).setCustomer(null);
+    }
+    
+    /**
+     * Adds a new Customer to customer list.
+     * 
+     * @param customer the new customer
+     */
+
+    public void addCustomerToList(Customer customer) {
+        try {            
+            CustomerDAO.insertCustomer(customer);
+    
+            detachCustomer();
+            refreshCustomerList();
+            switchTo(MidtownComics.CustomerListView);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Modifies an existing Customer in customer list.
+     * 
+     * @param customer the modified customer
+     */
+
+    public void modifyCustomerInList(Customer customer) {
+        try {
+            CustomerDAO.updateCustomer(customer);
+            
+            detachCustomer();
+            refreshCustomerList();
+            switchTo(MidtownComics.CustomerListView);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Removes an existing Customer from customer list.
+     * 
+     * @param customer the customer to be removed
+     */
+
+    public void removeCustomerFromList(Customer customer) {
+        try {
+            CustomerDAO.deleteCustomer(customer);
+    
+            detachCustomer();
+            refreshCustomerList();
+            switchTo(MidtownComics.CustomerListView);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -318,6 +398,14 @@ public class ViewManager {
     
     private void refreshCart() {
         ((CartView) views.getComponent(MidtownComics.CartViewIndex)).refreshCart();
+    }
+    
+    /*
+     * Refreshes the customer list in the CustomerListView.
+     */
+    
+    private void refreshCustomerList() {
+        ((CustomerListView) views.getComponent(MidtownComics.CustomerListViewIndex)).refreshCustomerList();
     }
     
     /*
