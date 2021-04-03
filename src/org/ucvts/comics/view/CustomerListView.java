@@ -74,7 +74,7 @@ public class CustomerListView extends JPanel implements ActionListener {
      * Initializes the customer list UI components.
      */
     
-//    Update here and in ViewManager --> make CustomerView
+//    Update here and in ViewManager --> make CustomerView, make CustomerForm, add more methods to ViewManager
     private void initCustomerList() {
         JPanel body = new JPanel();
         body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
