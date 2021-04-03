@@ -11,6 +11,8 @@ import org.ucvts.comics.view.CartView;
 import org.ucvts.comics.view.InventoryView;
 import org.ucvts.comics.view.ProductView;
 import org.ucvts.comics.view.OrderView;
+import org.ucvts.comics.view.CustomerListView;
+
 
 @SuppressWarnings("serial")
 public class MidtownComics extends JFrame {
@@ -19,11 +21,13 @@ public class MidtownComics extends JFrame {
     public static final int ProductViewIndex = 1;
     public static final int CartViewIndex = 2;
     public static final int OrderViewIndex = 3;
+    public static final int CustomerListIndex = 4;
     
     public static final String InventoryView = "InventoryView";
     public static final String ProductView = "ProductView";
     public static final String CartView = "CartView";
     public static final String OrderView = "OrderView";
+    public static final String CustomerListView = "CustomerListView";
     
     /**
      * Initializes the application views and frame.
@@ -39,6 +43,7 @@ public class MidtownComics extends JFrame {
         views.add(new ProductView(manager), ProductView);
         views.add(new CartView(manager), CartView);
         views.add(new OrderView(manager), OrderView);
+        views.add(new CustomerListView(manager), CustomerListView);
         
         // configure application frame
         

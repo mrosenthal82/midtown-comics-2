@@ -22,6 +22,7 @@ public class InventoryView extends JPanel implements ActionListener {
     private JScrollPane scroll;
     private JButton addProduct;
     private JButton viewCart;
+    private JButton customerList;
     
     /**
      * Creates an instance of the InventoryView class.
@@ -104,8 +105,13 @@ public class InventoryView extends JPanel implements ActionListener {
         viewCart.putClientProperty("id", -1L);
         viewCart.addActionListener(this);
         
+        customerList = new JButton("Customer List");
+        customerList.putClientProperty("id", -1L);
+        customerList.addActionListener(this);
+        
         panel.add(addProduct, BorderLayout.WEST);
         panel.add(viewCart, BorderLayout.EAST);
+        panel.add(customerList, BorderLayout.CENTER);
         this.add(panel, BorderLayout.SOUTH);
     }
     
@@ -123,6 +129,8 @@ public class InventoryView extends JPanel implements ActionListener {
             manager.switchTo(MidtownComics.ProductView);
         } else if (source.equals(viewCart)) {
             manager.switchTo(MidtownComics.CartView);
+        } else if (source.equals(customerList)) {
+        	manager.switchTo(MidtownComics.CustomerListView);
         }
     }
 }

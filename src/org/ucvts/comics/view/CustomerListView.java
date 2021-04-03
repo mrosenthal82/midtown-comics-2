@@ -20,8 +20,7 @@ public class CustomerListView extends JPanel implements ActionListener {
 	
 	 private ViewManager manager;
 	 private JScrollPane scroll;
-	 private JButton addProduct;		// Update
-	 private JButton viewCart;			// Update
+	 private JButton inventoryView;
 	 
 	 /**
 	 * Creates an instance of the CustomerListView class.
@@ -93,21 +92,15 @@ public class CustomerListView extends JPanel implements ActionListener {
      * Initializes the footer UI components.
      */
     
-// Update buttons!
     private void initFooter() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(new EmptyBorder(10, 15, 15, 15));
         
-        addProduct = new JButton("Add Product");
-        addProduct.putClientProperty("id", -1L);
-        addProduct.addActionListener(this);
+        inventoryView = new JButton("Inventory");
+        inventoryView.putClientProperty("id", -1L);
+        inventoryView.addActionListener(this);
         
-        viewCart = new JButton("Proceed to Cart");
-        viewCart.putClientProperty("id", -1L);
-        viewCart.addActionListener(this);
-        
-        panel.add(addProduct, BorderLayout.WEST);
-        panel.add(viewCart, BorderLayout.EAST);
+        panel.add(inventoryView, BorderLayout.WEST);
         this.add(panel, BorderLayout.SOUTH);
     }
 	
@@ -121,11 +114,8 @@ public class CustomerListView extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         
-// Update buttons!
-        if (source.equals(addProduct)) {
-            manager.switchTo(MidtownComics.ProductView);
-        } else if (source.equals(viewCart)) {
-            manager.switchTo(MidtownComics.CartView);
-        }
+        if (source.equals(inventoryView)) {
+            manager.switchTo(MidtownComics.InventoryView);
+        } 
     }
 }
