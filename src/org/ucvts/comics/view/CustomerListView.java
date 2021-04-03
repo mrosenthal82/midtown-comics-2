@@ -21,6 +21,7 @@ public class CustomerListView extends JPanel implements ActionListener {
 	 private ViewManager manager;
 	 private JScrollPane scroll;
 	 private JButton inventoryView;
+	 private JButton addCustomer;
 	 
 	 /**
 	 * Creates an instance of the CustomerListView class.
@@ -99,7 +100,12 @@ public class CustomerListView extends JPanel implements ActionListener {
         inventoryView.putClientProperty("id", -1L);
         inventoryView.addActionListener(this);
         
+        addCustomer = new JButton("Add Customer");
+        addCustomer.putClientProperty("id", -1L);
+        addCustomer.addActionListener(this);
+        
         panel.add(inventoryView, BorderLayout.WEST);
+        panel.add(addCustomer, BorderLayout.EAST);
         this.add(panel, BorderLayout.SOUTH);
     }
 	
@@ -115,6 +121,8 @@ public class CustomerListView extends JPanel implements ActionListener {
         
         if (source.equals(inventoryView)) {
             manager.switchTo(MidtownComics.InventoryView);
-        } 
+        } else if (source.equals(addCustomer)) {
+        	manager.switchTo(MidtownComics.CustomerView);
+        }
     }
 }

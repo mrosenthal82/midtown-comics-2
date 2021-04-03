@@ -12,6 +12,7 @@ import org.ucvts.comics.view.InventoryView;
 import org.ucvts.comics.view.ProductView;
 import org.ucvts.comics.view.OrderView;
 import org.ucvts.comics.view.CustomerListView;
+import org.ucvts.comics.view.CustomerView;
 
 
 @SuppressWarnings("serial")
@@ -47,6 +48,7 @@ public class MidtownComics extends JFrame {
         views.add(new CartView(manager), CartView);
         views.add(new OrderView(manager), OrderView);
         views.add(new CustomerListView(manager), CustomerListView);
+        views.add(new CustomerView(manager), CustomerView);
         
         // configure application frame
         
