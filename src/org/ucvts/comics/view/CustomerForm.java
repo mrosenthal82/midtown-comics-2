@@ -1,12 +1,16 @@
 package org.ucvts.comics.view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import org.ucvts.comics.model.Customer;
 
@@ -23,6 +27,7 @@ public class CustomerForm extends JPanel {
     private JTextField stateField;
     private JTextField postalCodeField;
     private JLabel errorLabel;
+    private JScrollPane scroll;
     
     /**
      * Creates a default instance of the CustomerForm class.
@@ -116,7 +121,11 @@ public class CustomerForm extends JPanel {
      */
     
     private void init(Customer customer) {
-        this.setLayout(null);
+//        this.setLayout(null);
+        
+        JPanel body = new JPanel();
+        body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
+        body.setBorder(new EmptyBorder(15, 15, 15, 15));
         
         initCustomerId(customer);
        	initFirstName(customer);
@@ -128,6 +137,9 @@ public class CustomerForm extends JPanel {
        	initState(customer);
        	initPostalCode(customer);
        	initErrorMessage();
+       	
+       	scroll = new JScrollPane(body);
+        this.add(scroll, BorderLayout.CENTER);
     }
     
     /*
@@ -189,11 +201,11 @@ public class CustomerForm extends JPanel {
     private void initPhone(Customer customer) {
         JLabel label = new JLabel("Phone No.");
         label.setFont(new Font("DialogInput", Font.BOLD, 14));
-        label.setBounds(25, 155, 100, 40);
+        label.setBounds(25, 225, 100, 40);
         label.setLabelFor(phoneField);
         
         phoneField = new JTextField(10);
-        phoneField.setBounds(20, 185, 710, 40);
+        phoneField.setBounds(20, 255, 710, 40);
         
         this.add(label);
         this.add(phoneField);
@@ -206,11 +218,11 @@ public class CustomerForm extends JPanel {
     private void initEmail(Customer customer) {
         JLabel label = new JLabel("Email");
         label.setFont(new Font("DialogInput", Font.BOLD, 14));
-        label.setBounds(25, 155, 100, 40);
+        label.setBounds(25, 295, 100, 40);
         label.setLabelFor(emailField);
         
         emailField = new JTextField(10);
-        emailField.setBounds(20, 185, 710, 40);
+        emailField.setBounds(20, 325, 710, 40);
         
         this.add(label);
         this.add(emailField);
@@ -223,11 +235,11 @@ public class CustomerForm extends JPanel {
     private void initStreetAddress(Customer customer) {
         JLabel label = new JLabel("Street Address");
         label.setFont(new Font("DialogInput", Font.BOLD, 14));
-        label.setBounds(25, 155, 100, 40);
+        label.setBounds(25, 365, 100, 40);
         label.setLabelFor(streetAddressField);
         
         streetAddressField = new JTextField(10);
-        streetAddressField.setBounds(20, 185, 710, 40);
+        streetAddressField.setBounds(20, 395, 710, 40);
         
         this.add(label);
         this.add(streetAddressField);
@@ -240,11 +252,11 @@ public class CustomerForm extends JPanel {
     private void initCity(Customer customer) {
         JLabel label = new JLabel("City");
         label.setFont(new Font("DialogInput", Font.BOLD, 14));
-        label.setBounds(25, 155, 100, 40);
+        label.setBounds(25, 435, 100, 40);
         label.setLabelFor(cityField);
         
         cityField = new JTextField(10);
-        cityField.setBounds(20, 185, 710, 40);
+        cityField.setBounds(20, 465, 710, 40);
         
         this.add(label);
         this.add(cityField);
@@ -257,11 +269,11 @@ public class CustomerForm extends JPanel {
     private void initState(Customer customer) {
         JLabel label = new JLabel("State");
         label.setFont(new Font("DialogInput", Font.BOLD, 14));
-        label.setBounds(25, 155, 100, 40);
+        label.setBounds(25, 505, 100, 40);
         label.setLabelFor(stateField);
         
         stateField = new JTextField(10);
-        stateField.setBounds(20, 185, 710, 40);
+        stateField.setBounds(20, 535, 710, 40);
         
         this.add(label);
         this.add(stateField);
@@ -274,11 +286,11 @@ public class CustomerForm extends JPanel {
     private void initPostalCode(Customer customer) {
         JLabel label = new JLabel("Postal Code");
         label.setFont(new Font("DialogInput", Font.BOLD, 14));
-        label.setBounds(25, 155, 100, 40);
+        label.setBounds(25, 575, 100, 40);
         label.setLabelFor(postalCodeField);
         
         postalCodeField = new JTextField(10);
-        postalCodeField.setBounds(20, 185, 710, 40);
+        postalCodeField.setBounds(20, 605, 710, 40);
         
         this.add(label);
         this.add(postalCodeField);
@@ -292,7 +304,7 @@ public class CustomerForm extends JPanel {
         errorLabel = new JLabel("", SwingConstants.CENTER);
         errorLabel.setFont(new Font("DialogInput", Font.ITALIC, 14));
         errorLabel.setForeground(Color.RED);
-        errorLabel.setBounds(20, 540, 710, 40);
+        errorLabel.setBounds(20, 640, 710, 40);
         
         this.add(errorLabel);
     }
